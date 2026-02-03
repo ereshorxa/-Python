@@ -1,0 +1,320 @@
+import 'dart:io';
+import 'dart:math';
+
+void main(List<String> arguments) {
+  String choose = "0";
+  do{
+    print("==============");
+    print("Меню");
+    print("==============");
+
+    print("1. Сложение");
+    print("2. Вычитание");
+    print("3. Умножение");
+    print("4. Деление");
+    print("5. Целочисленное деление");
+    print("6. Отсаток от деления");
+    print("7. Возведение в степень");
+    print("8. Сравнение");
+    print("9. Больше или равно");
+    print("10. Меньше или равно");
+    
+    
+    print("0. Выход");
+    
+    //=================
+    //Выбор операции
+    //=================
+    print("Выберете операцию");
+    var UserChoose = stdin.readLineSync();
+    
+    //=================
+    //Ввод значений
+    //=================
+    double? first;
+    double? second;
+
+    switch (UserChoose){
+      //Сложение
+      case "1":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first + $second = ${first + second}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Вычитание
+      case "2":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first - $second = ${first - second}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Умножение
+      case "3":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first * $second = ${first * second}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Деление
+      case "4":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+          // ОБРАБОТКА ДЕЛЕНИЯ НА НОЛЬ
+          else if (second == 0) {
+            print("Ошибка: деление на ноль невозможно!");
+            second = null;
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first / $second = ${first / second}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Целочисленное деление
+      case "5":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+         
+          else if (second == 0) {
+            print("Ошибка: деление на ноль невозможно!");
+            second = null;
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first ~/ $second = ${first ~/ second}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Остаток от деления
+      case "6":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+          else if (second == 0) {
+            print("Ошибка: деление на ноль невозможно!");
+            second = null;
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first % $second = ${first % second}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Возведение в степень
+      case "7":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        print("$first в степени $second = ${pow(first,second)}");
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Сравнение 
+      case "8":
+      do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка!Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка!Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        if (first != second && first > second){
+          print("$first больше чем $second");
+        }
+        else if(first != second && first < second){
+           print("$first меньше чем $second");
+        }
+        else{
+          print("$first равно $second");
+        }
+        print("Операция завершена, нажмите enter чтобы продолжить....");
+        stdin.readLineSync();
+        break;
+      //Больше или равно 
+      case "9":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка! Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка! Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        if (first >= second){
+          print("$first больше или равно $second - ИСТИНА");
+        }
+        else{
+          print("$first больше или равно $second - ЛОЖЬ");
+        }
+        print("Операция завершена, нажмите enter чтобы продолжить...");
+        stdin.readLineSync();
+        break;
+      //Меньше или равно
+       case "10":
+        do {
+          print("Введите первое число");
+          first = double.tryParse(stdin.readLineSync()?? '');
+          if(first == null){
+          print("Ошибка! Введите число правильно");
+          }
+        }while (first == null);
+
+        do {
+          print("Введите второе число");
+          second = double.tryParse(stdin.readLineSync()?? '');
+          if(second == null){
+            print("Ошибка! Введите число правильно");
+          }
+        }while (second == null);
+
+        print("");
+        print("Ваш результат:");
+        if (first <= second){
+          print("$first меньше или равно $second - ИСТИНА");
+        }
+        else{
+          print("$first меньше или равно $second - ЛОЖЬ");
+        }
+        print("Операция завершена, нажмите enter чтобы продолжить...");
+        stdin.readLineSync();
+        break;
+      // Выход :(
+      case "0":
+        choose = "1";
+        break;
+      default:
+        print("Неверный выбор. Пожалуйста, выберите операцию от 1 до 5");
+    }
+  }while(choose != "1");
+  print("Программа завершена, нажмите enter чтобы продолжить....");
+  stdin.readLineSync();
+}
