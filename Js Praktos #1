@@ -1,0 +1,84 @@
+//==========================
+//Praktos.html
+//==========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="Praktos1-2.js"></script>
+
+</body>
+</html>
+
+
+//===================================================
+//Praktos1-2.js
+//===================================================
+const users = [
+{ id: 1, name: "Anna", age: 22, city: "Moscow", isActive: true },
+{ id: 2, name: "Oleg", age: 17, city: "Kazan", isActive: false },
+{ id: 3, name: "Ivan", age: 30, city: "Moscow", isActive: true },
+{ id: 4, name: "Maria", age: 25, city: "Sochi", isActive: false }
+];
+console.log("Задание №1")
+function getActiveUsers(users){
+    return users.filter(users => users.isActive === true)
+}
+console.log(getActiveUsers(users))
+
+console.log("Задание №2")
+const getUserNames = (users) => users.map(users => users.name)
+console.log(getUserNames(users))
+
+console.log("Задание №3")
+function findUserById(users, id) {
+    const foundUser = users.find(user => user.id === id);
+    return foundUser || null;
+}
+console.log(findUserById(users, 1))
+
+console.log("Задание №4")
+function getUserStatistics(users){
+    const total = users.length
+    const active = (users.filter(users => users.isActive === true)).length
+    const inactive = total - active
+    return {
+        total: total,
+        active: active,
+        inactive: inactive
+    }
+    
+    
+}
+console.log(getUserStatistics(users))
+
+console.log("Задание №5")
+function getAverageAge(users){
+    let total = users.length
+    let age_sum = users.reduce((summa, user) => summa + user.age,0)
+    return age_sum/total
+}
+console.log(`Средний возраст: ${getAverageAge(users)}`)
+
+console.log("Задание №6")
+function groupUsersByCity(users) {
+    let result = {};
+    
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i];
+        let city = user.city;
+        if (result[city] === undefined) {
+            result[city] = [];
+        }
+        result[city].push(user);
+    }
+    
+    return result;
+}
+
+console.log(groupUsersByCity(users));
+
